@@ -1,0 +1,186 @@
+Namespace(path='./data/', output_path='./logging/Retrieval/HarMeme/RAC/RAC_lr0.0001_Bz4_Ep40_cosSim_triplet_drop[0.2, 0.4, 0.1]_topK20__PseudoGold_positive_1_hard_negative_1_seed0_hybrid_loss/', model='openai_clip-vit-large-patch14-336_HF', dataset='HarMeme', similarity_threshold=-1.0, fusion_mode='align', topk=20, majority_voting='arithmetic', metric='cos', loss='triplet', triplet_margin=0.1, norm_feats_loss=False, l2_sqrt=False, hybrid_loss=True, ce_weight=0.5, pos_weight_value=None, num_layers=3, proj_dim=1024, map_dim=1024, dropout=[0.2, 0.4, 0.1], batch_norm=False, last_layer='none', epochs=40, batch_size=4, lr=0.0001, weight_decay=0.0001, lr_scheduler=False, num_workers=4, grad_clip=0.1, no_pseudo_gold_positives=1, in_batch_loss=True, hard_negatives_loss=True, no_hard_negatives=1, no_hard_positives=0, hard_negatives_multiple=12, Faiss_GPU=True, reindex_every_step=False, sparse_dictionary=None, use_attribute=True, sparse_topk=None, eval_retrieval=True, log_interval=10, final_eval=False, exp_comment='', group_name='RAC', seed=0, device='cuda', visualise_embed=False, force=True, save_embed=False)
+Image feature dimension: 1024
+Text feature dimension: 768
+classifier_hateClipper(
+  (img_proj): Sequential(
+    (0): Linear(in_features=1024, out_features=1024, bias=True)
+    (1): Dropout(p=0.2, inplace=False)
+  )
+  (text_proj): Sequential(
+    (0): Linear(in_features=768, out_features=1024, bias=True)
+    (1): Dropout(p=0.2, inplace=False)
+  )
+  (mlp): Sequential(
+    (0): Dropout(p=0.4, inplace=False)
+    (1): Linear(in_features=1024, out_features=1024, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.1, inplace=False)
+    (4): Linear(in_features=1024, out_features=1024, bias=True)
+    (5): ReLU()
+    (6): Dropout(p=0.1, inplace=False)
+    (7): Linear(in_features=1024, out_features=1024, bias=True)
+    (8): ReLU()
+    (9): Dropout(p=0.1, inplace=False)
+  )
+  (output_layer): Linear(in_features=1024, out_features=1, bias=True)
+)
+dev  Epoch 0 acc: 0.6554 roc: 0.6419 pre: 0.0000 recall: 0.0000 f1: 0.0000 loss: 0.6864 
+test Epoch 0 acc: 0.6497 roc: 0.5828 pre: 0.0000 recall: 0.0000 f1: 0.0000
+Val Retrieval Epoch 0: acc: 0.6554, roc: 0.4642, pre: 0.0000, recall: 0.0000, f1: 0.0000
+Test Retrieval Epoch 0: acc: 0.6497, roc: 0.4422, pre: 0.0000, recall: 0.0000, f1: 0.0000
+dev  Epoch 1 acc: 0.6554 roc: 0.4330 pre: 0.0000 recall: 0.0000 f1: 0.0000 loss: 0.6766 
+test Epoch 1 acc: 0.6497 roc: 0.4605 pre: 0.0000 recall: 0.0000 f1: 0.0000
+Val Retrieval Epoch 1: acc: 0.6554, roc: 0.4425, pre: 0.0000, recall: 0.0000, f1: 0.0000
+Test Retrieval Epoch 1: acc: 0.6497, roc: 0.4644, pre: 0.0000, recall: 0.0000, f1: 0.0000
+dev  Epoch 2 acc: 0.6554 roc: 0.5707 pre: 0.0000 recall: 0.0000 f1: 0.0000 loss: 0.6443 
+test Epoch 2 acc: 0.6497 roc: 0.5592 pre: 0.0000 recall: 0.0000 f1: 0.0000
+Val Retrieval Epoch 2: acc: 0.5254, roc: 0.4218, pre: 0.2653, recall: 0.2131, f1: 0.2364
+Test Retrieval Epoch 2: acc: 0.5763, roc: 0.5097, pre: 0.3452, recall: 0.2339, f1: 0.2788
+dev  Epoch 3 acc: 0.6554 roc: 0.5779 pre: 0.0000 recall: 0.0000 f1: 0.0000 loss: 0.8249 
+test Epoch 3 acc: 0.6497 roc: 0.5820 pre: 0.0000 recall: 0.0000 f1: 0.0000
+Val Retrieval Epoch 3: acc: 0.6102, roc: 0.5789, pre: 0.4130, recall: 0.3115, f1: 0.3551
+Test Retrieval Epoch 3: acc: 0.5706, roc: 0.5998, pre: 0.3939, recall: 0.4194, f1: 0.4062
+dev  Epoch 4 acc: 0.5593 roc: 0.5574 pre: 0.3023 recall: 0.2131 f1: 0.2500 loss: 0.6527 
+test Epoch 4 acc: 0.5763 roc: 0.5935 pre: 0.3750 recall: 0.3145 f1: 0.3421
+Val Retrieval Epoch 4: acc: 0.4689, roc: 0.5880, pre: 0.3680, recall: 0.7541, f1: 0.4946
+Test Retrieval Epoch 4: acc: 0.5113, roc: 0.5978, pre: 0.3948, recall: 0.7419, f1: 0.5154
+dev  Epoch 5 acc: 0.4011 roc: 0.5376 pre: 0.3602 recall: 0.9508 f1: 0.5225 loss: 1.0476 
+test Epoch 5 acc: 0.3842 roc: 0.5872 pre: 0.3609 recall: 0.9839 f1: 0.5281
+Val Retrieval Epoch 5: acc: 0.3955, roc: 0.5601, pre: 0.3580, recall: 0.9508, f1: 0.5202
+Test Retrieval Epoch 5: acc: 0.3898, roc: 0.5611, pre: 0.3614, recall: 0.9677, f1: 0.5263
+dev  Epoch 6 acc: 0.4068 roc: 0.5383 pre: 0.3642 recall: 0.9672 f1: 0.5291 loss: 1.2607 
+test Epoch 6 acc: 0.4040 roc: 0.5921 pre: 0.3686 recall: 0.9839 f1: 0.5363
+Val Retrieval Epoch 6: acc: 0.3898, roc: 0.5318, pre: 0.3522, recall: 0.9180, f1: 0.5091
+Test Retrieval Epoch 6: acc: 0.4124, roc: 0.5027, pre: 0.3679, recall: 0.9435, f1: 0.5294
+dev  Epoch 7 acc: 0.4237 roc: 0.5690 pre: 0.3694 recall: 0.9508 f1: 0.5321 loss: 1.4784 
+test Epoch 7 acc: 0.4209 roc: 0.5943 pre: 0.3698 recall: 0.9274 f1: 0.5287
+Val Retrieval Epoch 7: acc: 0.3955, roc: 0.4951, pre: 0.3598, recall: 0.9672, f1: 0.5244
+Test Retrieval Epoch 7: acc: 0.4011, roc: 0.5585, pre: 0.3667, recall: 0.9758, f1: 0.5330
+dev  Epoch 8 acc: 0.5198 roc: 0.5835 pre: 0.3909 recall: 0.7049 f1: 0.5029 loss: 1.4065 
+test Epoch 8 acc: 0.5282 roc: 0.5900 pre: 0.3961 recall: 0.6613 f1: 0.4955
+Val Retrieval Epoch 8: acc: 0.5311, roc: 0.5797, pre: 0.3981, recall: 0.7049, f1: 0.5089
+Test Retrieval Epoch 8: acc: 0.5395, roc: 0.5745, pre: 0.4000, recall: 0.6290, f1: 0.4890
+dev  Epoch 9 acc: 0.6158 roc: 0.5931 pre: 0.4286 recall: 0.3443 f1: 0.3818 loss: 1.8674 
+test Epoch 9 acc: 0.6186 roc: 0.6006 pre: 0.4421 recall: 0.3387 f1: 0.3836
+Val Retrieval Epoch 9: acc: 0.5537, roc: 0.5917, pre: 0.4022, recall: 0.6066, f1: 0.4837
+Test Retrieval Epoch 9: acc: 0.5537, roc: 0.5926, pre: 0.4034, recall: 0.5726, f1: 0.4733
+dev  Epoch 10 acc: 0.6102 roc: 0.6040 pre: 0.4167 recall: 0.3279 f1: 0.3670 loss: 2.2768 
+test Epoch 10 acc: 0.6186 roc: 0.6020 pre: 0.4382 recall: 0.3145 f1: 0.3662
+Val Retrieval Epoch 10: acc: 0.6328, roc: 0.6037, pre: 0.4412, recall: 0.2459, f1: 0.3158
+Test Retrieval Epoch 10: acc: 0.6384, roc: 0.5949, pre: 0.4697, recall: 0.2500, f1: 0.3263
+dev  Epoch 11 acc: 0.6271 roc: 0.5989 pre: 0.4242 recall: 0.2295 f1: 0.2979 loss: 3.2080 
+test Epoch 11 acc: 0.6243 roc: 0.5928 pre: 0.4262 recall: 0.2097 f1: 0.2811
+Val Retrieval Epoch 11: acc: 0.6441, roc: 0.6033, pre: 0.4286, recall: 0.0984, f1: 0.1600
+Test Retrieval Epoch 11: acc: 0.6412, roc: 0.5884, pre: 0.4118, recall: 0.0565, f1: 0.0993
+dev  Epoch 12 acc: 0.6328 roc: 0.6090 pre: 0.3750 recall: 0.0984 f1: 0.1558 loss: 4.7174 
+test Epoch 12 acc: 0.6328 roc: 0.5933 pre: 0.4118 recall: 0.1129 f1: 0.1772
+Val Retrieval Epoch 12: acc: 0.6384, roc: 0.6094, pre: 0.4000, recall: 0.0984, f1: 0.1579
+Test Retrieval Epoch 12: acc: 0.6356, roc: 0.5888, pre: 0.3810, recall: 0.0645, f1: 0.1103
+dev  Epoch 13 acc: 0.6441 roc: 0.6097 pre: 0.4444 recall: 0.1311 f1: 0.2025 loss: 4.9848 
+test Epoch 13 acc: 0.6271 roc: 0.6007 pre: 0.4048 recall: 0.1371 f1: 0.2048
+Val Retrieval Epoch 13: acc: 0.6441, roc: 0.6068, pre: 0.4286, recall: 0.0984, f1: 0.1600
+Test Retrieval Epoch 13: acc: 0.6412, roc: 0.6002, pre: 0.4118, recall: 0.0565, f1: 0.0993
+dev  Epoch 14 acc: 0.6497 roc: 0.6139 pre: 0.4783 recall: 0.1803 f1: 0.2619 loss: 5.0472 
+test Epoch 14 acc: 0.6158 roc: 0.6046 pre: 0.3800 recall: 0.1532 f1: 0.2184
+Val Retrieval Epoch 14: acc: 0.6441, roc: 0.6139, pre: 0.4444, recall: 0.1311, f1: 0.2025
+Test Retrieval Epoch 14: acc: 0.6441, roc: 0.6020, pre: 0.4615, recall: 0.0968, f1: 0.1600
+dev  Epoch 15 acc: 0.6441 roc: 0.6104 pre: 0.4444 recall: 0.1311 f1: 0.2025 loss: 6.4863 
+test Epoch 15 acc: 0.6356 roc: 0.5985 pre: 0.4194 recall: 0.1048 f1: 0.1677
+Val Retrieval Epoch 15: acc: 0.6554, roc: 0.6108, pre: 0.5000, recall: 0.0984, f1: 0.1644
+Test Retrieval Epoch 15: acc: 0.6554, roc: 0.5864, pre: 0.5833, recall: 0.0565, f1: 0.1029
+dev  Epoch 16 acc: 0.6441 roc: 0.6220 pre: 0.4444 recall: 0.1311 f1: 0.2025 loss: 7.8031 
+test Epoch 16 acc: 0.6497 roc: 0.6092 pre: 0.5000 recall: 0.0806 f1: 0.1389
+Val Retrieval Epoch 16: acc: 0.6441, roc: 0.6217, pre: 0.4444, recall: 0.1311, f1: 0.2025
+Test Retrieval Epoch 16: acc: 0.6497, roc: 0.6068, pre: 0.5000, recall: 0.0806, f1: 0.1389
+dev  Epoch 17 acc: 0.6497 roc: 0.6241 pre: 0.4706 recall: 0.1311 f1: 0.2051 loss: 7.6602 
+test Epoch 17 acc: 0.6441 roc: 0.6207 pre: 0.4615 recall: 0.0968 f1: 0.1600
+Val Retrieval Epoch 17: acc: 0.6497, roc: 0.6201, pre: 0.4737, recall: 0.1475, f1: 0.2250
+Test Retrieval Epoch 17: acc: 0.6243, roc: 0.6183, pre: 0.3784, recall: 0.1129, f1: 0.1739
+dev  Epoch 18 acc: 0.6610 roc: 0.6313 pre: 0.5455 recall: 0.0984 f1: 0.1667 loss: 9.8321 
+test Epoch 18 acc: 0.6638 roc: 0.6256 pre: 0.6923 recall: 0.0726 f1: 0.1314
+Val Retrieval Epoch 18: acc: 0.6441, roc: 0.6245, pre: 0.4375, recall: 0.1148, f1: 0.1818
+Test Retrieval Epoch 18: acc: 0.6638, roc: 0.6171, pre: 0.6471, recall: 0.0887, f1: 0.1560
+dev  Epoch 19 acc: 0.6554 roc: 0.6395 pre: 0.5000 recall: 0.1475 f1: 0.2278 loss: 8.6453 
+test Epoch 19 acc: 0.6554 roc: 0.6289 pre: 0.5417 recall: 0.1048 f1: 0.1757
+Val Retrieval Epoch 19: acc: 0.6554, roc: 0.6409, pre: 0.5000, recall: 0.1475, f1: 0.2278
+Test Retrieval Epoch 19: acc: 0.6469, roc: 0.6268, pre: 0.4815, recall: 0.1048, f1: 0.1722
+dev  Epoch 20 acc: 0.6441 roc: 0.6485 pre: 0.4500 recall: 0.1475 f1: 0.2222 loss: 8.2928 
+test Epoch 20 acc: 0.6525 roc: 0.6309 pre: 0.5172 recall: 0.1210 f1: 0.1961
+Val Retrieval Epoch 20: acc: 0.6667, roc: 0.6474, pre: 0.5714, recall: 0.1311, f1: 0.2133
+Test Retrieval Epoch 20: acc: 0.6582, roc: 0.6299, pre: 0.5882, recall: 0.0806, f1: 0.1418
+dev  Epoch 21 acc: 0.6554 roc: 0.6457 pre: 0.5000 recall: 0.1311 f1: 0.2078 loss: 10.2206 
+test Epoch 21 acc: 0.6638 roc: 0.6312 pre: 0.6316 recall: 0.0968 f1: 0.1678
+Val Retrieval Epoch 21: acc: 0.6554, roc: 0.6422, pre: 0.5000, recall: 0.1311, f1: 0.2078
+Test Retrieval Epoch 21: acc: 0.6525, roc: 0.6288, pre: 0.5217, recall: 0.0968, f1: 0.1633
+dev  Epoch 22 acc: 0.6554 roc: 0.6508 pre: 0.5000 recall: 0.1311 f1: 0.2078 loss: 9.8525 
+test Epoch 22 acc: 0.6582 roc: 0.6408 pre: 0.5714 recall: 0.0968 f1: 0.1655
+Val Retrieval Epoch 22: acc: 0.6554, roc: 0.6514, pre: 0.5000, recall: 0.1475, f1: 0.2278
+Test Retrieval Epoch 22: acc: 0.6525, roc: 0.6375, pre: 0.5200, recall: 0.1048, f1: 0.1745
+dev  Epoch 23 acc: 0.6384 roc: 0.6412 pre: 0.4516 recall: 0.2295 f1: 0.3043 loss: 6.6654 
+test Epoch 23 acc: 0.6243 roc: 0.6337 pre: 0.4328 recall: 0.2339 f1: 0.3037
+Val Retrieval Epoch 23: acc: 0.6441, roc: 0.6454, pre: 0.4545, recall: 0.1639, f1: 0.2410
+Test Retrieval Epoch 23: acc: 0.6356, roc: 0.6357, pre: 0.4468, recall: 0.1694, f1: 0.2456
+dev  Epoch 24 acc: 0.6441 roc: 0.6514 pre: 0.4545 recall: 0.1639 f1: 0.2410 loss: 9.9155 
+test Epoch 24 acc: 0.6384 roc: 0.6380 pre: 0.4474 recall: 0.1371 f1: 0.2099
+Val Retrieval Epoch 24: acc: 0.6384, roc: 0.6515, pre: 0.4400, recall: 0.1803, f1: 0.2558
+Test Retrieval Epoch 24: acc: 0.6328, roc: 0.6362, pre: 0.4444, recall: 0.1935, f1: 0.2697
+dev  Epoch 25 acc: 0.6441 roc: 0.6508 pre: 0.4545 recall: 0.1639 f1: 0.2410 loss: 9.4658 
+test Epoch 25 acc: 0.6441 roc: 0.6325 pre: 0.4737 recall: 0.1452 f1: 0.2222
+Val Retrieval Epoch 25: acc: 0.6441, roc: 0.6474, pre: 0.4643, recall: 0.2131, f1: 0.2921
+Test Retrieval Epoch 25: acc: 0.6243, roc: 0.6278, pre: 0.4237, recall: 0.2016, f1: 0.2732
+dev  Epoch 26 acc: 0.6384 roc: 0.6339 pre: 0.4400 recall: 0.1803 f1: 0.2558 loss: 8.0802 
+test Epoch 26 acc: 0.6243 roc: 0.6207 pre: 0.4182 recall: 0.1855 f1: 0.2570
+Val Retrieval Epoch 26: acc: 0.6384, roc: 0.6326, pre: 0.4348, recall: 0.1639, f1: 0.2381
+Test Retrieval Epoch 26: acc: 0.6271, roc: 0.6189, pre: 0.4167, recall: 0.1613, f1: 0.2326
+dev  Epoch 27 acc: 0.6328 roc: 0.6386 pre: 0.4286 recall: 0.1967 f1: 0.2697 loss: 7.3752 
+test Epoch 27 acc: 0.6328 roc: 0.6243 pre: 0.4516 recall: 0.2258 f1: 0.3011
+Val Retrieval Epoch 27: acc: 0.6384, roc: 0.6389, pre: 0.4348, recall: 0.1639, f1: 0.2381
+Test Retrieval Epoch 27: acc: 0.6271, roc: 0.6227, pre: 0.4200, recall: 0.1694, f1: 0.2414
+dev  Epoch 28 acc: 0.6497 roc: 0.6336 pre: 0.4762 recall: 0.1639 f1: 0.2439 loss: 10.9224 
+test Epoch 28 acc: 0.6412 roc: 0.6208 pre: 0.4483 recall: 0.1048 f1: 0.1699
+Val Retrieval Epoch 28: acc: 0.6497, roc: 0.6326, pre: 0.4762, recall: 0.1639, f1: 0.2439
+Test Retrieval Epoch 28: acc: 0.6441, roc: 0.6185, pre: 0.4706, recall: 0.1290, f1: 0.2025
+dev  Epoch 29 acc: 0.6554 roc: 0.6406 pre: 0.5000 recall: 0.1639 f1: 0.2469 loss: 8.5748 
+test Epoch 29 acc: 0.6469 roc: 0.6392 pre: 0.4839 recall: 0.1210 f1: 0.1935
+Val Retrieval Epoch 29: acc: 0.6497, roc: 0.6376, pre: 0.4762, recall: 0.1639, f1: 0.2439
+Test Retrieval Epoch 29: acc: 0.6384, roc: 0.6354, pre: 0.4474, recall: 0.1371, f1: 0.2099
+dev  Epoch 30 acc: 0.6667 roc: 0.6464 pre: 0.5556 recall: 0.1639 f1: 0.2532 loss: 8.6572 
+test Epoch 30 acc: 0.6610 roc: 0.6411 pre: 0.5714 recall: 0.1290 f1: 0.2105
+Val Retrieval Epoch 30: acc: 0.6610, roc: 0.6460, pre: 0.5263, recall: 0.1639, f1: 0.2500
+Test Retrieval Epoch 30: acc: 0.6469, roc: 0.6383, pre: 0.4884, recall: 0.1694, f1: 0.2515
+dev  Epoch 31 acc: 0.6497 roc: 0.6516 pre: 0.4865 recall: 0.2951 f1: 0.3673 loss: 5.4458 
+test Epoch 31 acc: 0.6328 roc: 0.6388 pre: 0.4643 recall: 0.3145 f1: 0.3750
+Val Retrieval Epoch 31: acc: 0.6441, roc: 0.6536, pre: 0.4583, recall: 0.1803, f1: 0.2588
+Test Retrieval Epoch 31: acc: 0.6441, roc: 0.6386, pre: 0.4821, recall: 0.2177, f1: 0.3000
+dev  Epoch 32 acc: 0.6441 roc: 0.6463 pre: 0.4583 recall: 0.1803 f1: 0.2588 loss: 7.4397 
+test Epoch 32 acc: 0.6610 roc: 0.6408 pre: 0.5455 recall: 0.1935 f1: 0.2857
+Val Retrieval Epoch 32: acc: 0.6554, roc: 0.6491, pre: 0.5000, recall: 0.1803, f1: 0.2651
+Test Retrieval Epoch 32: acc: 0.6554, roc: 0.6390, pre: 0.5263, recall: 0.1613, f1: 0.2469
+dev  Epoch 33 acc: 0.6328 roc: 0.6422 pre: 0.4474 recall: 0.2787 f1: 0.3434 loss: 6.4264 
+test Epoch 33 acc: 0.6356 roc: 0.6291 pre: 0.4699 recall: 0.3145 f1: 0.3768
+Val Retrieval Epoch 33: acc: 0.6441, roc: 0.6372, pre: 0.4667, recall: 0.2295, f1: 0.3077
+Test Retrieval Epoch 33: acc: 0.6215, roc: 0.6295, pre: 0.4219, recall: 0.2177, f1: 0.2872
+dev  Epoch 34 acc: 0.6441 roc: 0.6420 pre: 0.4706 recall: 0.2623 f1: 0.3368 loss: 6.8684 
+test Epoch 34 acc: 0.6328 roc: 0.6286 pre: 0.4615 recall: 0.2903 f1: 0.3564
+Val Retrieval Epoch 34: acc: 0.6441, roc: 0.6427, pre: 0.4706, recall: 0.2623, f1: 0.3368
+Test Retrieval Epoch 34: acc: 0.6299, roc: 0.6268, pre: 0.4557, recall: 0.2903, f1: 0.3547
+dev  Epoch 35 acc: 0.6328 roc: 0.6354 pre: 0.4474 recall: 0.2787 f1: 0.3434 loss: 6.7188 
+test Epoch 35 acc: 0.6186 roc: 0.6218 pre: 0.4368 recall: 0.3065 f1: 0.3602
+Val Retrieval Epoch 35: acc: 0.6328, roc: 0.6360, pre: 0.4474, recall: 0.2787, f1: 0.3434
+Test Retrieval Epoch 35: acc: 0.6130, roc: 0.6192, pre: 0.4270, recall: 0.3065, f1: 0.3568
+dev  Epoch 36 acc: 0.6271 roc: 0.6362 pre: 0.4074 recall: 0.1803 f1: 0.2500 loss: 7.8526 
+test Epoch 36 acc: 0.6384 roc: 0.6221 pre: 0.4667 recall: 0.2258 f1: 0.3043
+Val Retrieval Epoch 36: acc: 0.6271, roc: 0.6371, pre: 0.4074, recall: 0.1803, f1: 0.2500
+Test Retrieval Epoch 36: acc: 0.6441, roc: 0.6236, pre: 0.4808, recall: 0.2016, f1: 0.2841
+dev  Epoch 37 acc: 0.6384 roc: 0.6301 pre: 0.4483 recall: 0.2131 f1: 0.2889 loss: 7.5373 
+test Epoch 37 acc: 0.6525 roc: 0.6134 pre: 0.5098 recall: 0.2097 f1: 0.2971
+Val Retrieval Epoch 37: acc: 0.6441, roc: 0.6299, pre: 0.4643, recall: 0.2131, f1: 0.2921
+Test Retrieval Epoch 37: acc: 0.6497, roc: 0.6117, pre: 0.5000, recall: 0.2016, f1: 0.2874
+dev  Epoch 38 acc: 0.6328 roc: 0.6230 pre: 0.4444 recall: 0.2623 f1: 0.3299 loss: 6.8158 
+test Epoch 38 acc: 0.6243 roc: 0.6116 pre: 0.4416 recall: 0.2742 f1: 0.3383
+Val Retrieval Epoch 38: acc: 0.6215, roc: 0.6306, pre: 0.4062, recall: 0.2131, f1: 0.2796
+Test Retrieval Epoch 38: acc: 0.6243, roc: 0.6126, pre: 0.4348, recall: 0.2419, f1: 0.3109
+dev  Epoch 39 acc: 0.6441 roc: 0.6148 pre: 0.4643 recall: 0.2131 f1: 0.2921 loss: 9.4124 
+test Epoch 39 acc: 0.6412 roc: 0.6267 pre: 0.4754 recall: 0.2339 f1: 0.3135
+Val Retrieval Epoch 39: acc: 0.6384, roc: 0.6129, pre: 0.4651, recall: 0.3279, f1: 0.3846
+Test Retrieval Epoch 39: acc: 0.6017, roc: 0.6259, pre: 0.4190, recall: 0.3548, f1: 0.3843
